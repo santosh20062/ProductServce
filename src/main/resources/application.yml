@@ -1,0 +1,33 @@
+server:
+  port: 9002
+
+
+spring:
+  application:
+    name: PRODUCT-SERVICE
+#  zipkin:
+#    base-url: http://127.0.0.1:9411/
+
+#abcdaqwertyuiop[]asdfghjkl;'zxcvbnm,./1234567890-=
+  datasource:
+    url: jdbc:mysql://localhost:3306/ProductDB
+    username: root
+    password: Root@123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+      show-sql: true
+
+management:
+  endpoints:
+    web:
+      #exposure.include: health, prometheus
+      exposure.include: '*'
+  endpoint:
+    health:
+      show-details: always
+  health:
+    probes:
+      enabled: true
